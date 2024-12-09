@@ -30,12 +30,7 @@ def main():
                 database=db_config["database"]
             )
         except:    
-            db = EPLTableData(
-                host='localhost',
-                user='root',
-                password='aditya',
-                database='plmc'
-            )
+            pass
 
         # Sanitize season input
         sanitized_season = season.replace("-", "_")

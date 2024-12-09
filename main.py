@@ -27,17 +27,23 @@ def main():
             st.error("Invalid season format. Please use YYYY-YYYY format.")
             return
 
-        # Database manager
-        try:
-            # db_config = st.secrets["database"]
-            db = EPLTableData(
+        db = EPLTableData(
                 host=DB_HOST,
                 user=DB_USER,
                 password=DB_PASSWORD,
                 database=DB_NAME
             )
-        except:    
-            pass
+        # Database manager
+        # try:
+        #     # db_config = st.secrets["database"]
+        #     db = EPLTableData(
+        #         host=DB_HOST,
+        #         user=DB_USER,
+        #         password=DB_PASSWORD,
+        #         database=DB_NAME
+        #     )
+        # except:    
+        #     pass
 
         # Sanitize season input
         sanitized_season = season.replace("-", "_")

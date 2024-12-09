@@ -4,6 +4,13 @@ from match_simulation import prepare_data, calculate_final_points
 from db_manager import EPLTableData
 import pandas as pd
 import re
+import os
+
+# Access secrets as environment variables
+DB_HOST = os.getenv("DB_HOST", "localhost")
+DB_USER = os.getenv("DB_USER", "root")
+DB_PASSWORD = os.getenv("DB_PASSWORD", "")
+DB_NAME = os.getenv("DB_NAME", "plmc")
 
 def main():
     st.title("Premier League Simulation - Markov Chain")
@@ -22,12 +29,12 @@ def main():
 
         # Database manager
         try:
-            db_config = st.secrets["database"]
+            # db_config = st.secrets["database"]
             db = EPLTableData(
-                host=db_config["host"],
-                user=db_config["user"],
-                password=db_config["password"],
-                database=db_config["database"]
+                host=DB_HOST,
+                user=DB_USER,
+                password=DB_PASSWORD,
+                database=DB_NAME
             )
         except:    
             pass

@@ -8,15 +8,15 @@ class EPLTableData:
         password:
         database: plmc
     """
-    def __init__(self, host, user, password, database, port):
+    def __init__(self, host, user, password, database):
         
         try:
             self.connection = mysql.connector.connect(
                 host=host,
                 user=user,
                 password=password,
-                database=database, 
-                port=port
+                database=database
+                # port=port
             )
             self.cursor = self.connection.cursor()
             print('Database connection established.')
